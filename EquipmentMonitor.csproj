@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4D650FC5-2AE8-46ED-9FFF-798FBC7724D5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EquipmentMonitor</RootNamespace>
+    <AssemblyName>EquipmentMonitor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ico_EquipmentMonitor.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="QMSSDK">
+      <HintPath>..\..\..\RACK\QCA\RPT_ProductionTimeConsumption\RPT_ProductionTimeConsumption\DLL\QMSSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clsCommon.cs" />
+    <Compile Include="clsDB.cs" />
+    <Compile Include="clsDB_Machine.cs" />
+    <Compile Include="clsLog.cs" />
+    <Compile Include="clsParserMethod.cs" />
+    <Compile Include="clsTerm.cs" />
+    <Compile Include="ConnectDBSMT.cs" />
+    <Compile Include="dlgDBInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgDBInfo.Designer.cs">
+      <DependentUpon>dlgDBInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgEqu_SN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgEqu_SN.Designer.cs">
+      <DependentUpon>dlgEqu_SN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="dlgInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dlgInputBox.Designer.cs">
+      <DependentUpon>dlgInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogParser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogParser.Designer.cs">
+      <DependentUpon>FormLogParser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetting.Designer.cs">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Glue\Anda.cs" />
+    <Compile Include="Glue\AU77S.cs" />
+    <Compile Include="Glue\Camalot.cs" />
+    <Compile Include="Glue\EM5701N.cs" />
+    <Compile Include="Glue\Nordson.cs" />
+    <Compile Include="Glue\PVA.cs" />
+    <Compile Include="Laser\Jutze.cs" />
+    <Compile Include="Laser\HuaGong.cs" />
+    <Compile Include="Mounter\clsNXT_II.cs" />
+    <Compile Include="Mounter\CMDT.cs" />
+    <Compile Include="Mounter\NPM.cs" />
+    <Compile Include="Mounter\NPM_PANACIM.cs" />
+    <Compile Include="Mounter\NXT_I.cs" />
+    <Compile Include="PressFit\LPM1.cs" />
+    <Compile Include="PressFit\MEP_6T_TYCO.cs" />
+    <Compile Include="PressFit\SX-PF03.cs" />
+    <Compile Include="ProgramVersion.cs" />
+    <Compile Include="Reflow\HELLER-1826MK5.cs" />
+    <Compile Include="Router\EXE880M.cs" />
+    <Compile Include="Router\EL5700.cs" />
+    <Compile Include="Router\WT-500L.cs" />
+    <Compile Include="SignIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignIn.Designer.cs">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SolderPastePrinter\DEK_Horizon_03ix.cs" />
+    <Compile Include="SolderPastePrinter\GPX.cs" />
+    <Compile Include="SolderPastePrinter\GPX_C.cs" />
+    <Compile Include="SolderPastePrinter\SPG.cs" />
+    <Compile Include="SolderPastePrinter\Versaprint.cs" />
+    <Compile Include="WaveSoldering\ERSA.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SolderPastePrinter\MPM.cs" />
+    <Compile Include="Reflow\VXP945-Rehm.cs" />
+    <Compile Include="WaveSoldering\ERSAW3.cs" />
+    <EmbeddedResource Include="dlgDBInfo.resx">
+      <DependentUpon>dlgDBInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgEqu_SN.resx">
+      <DependentUpon>dlgEqu_SN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dlgInputBox.resx">
+      <DependentUpon>dlgInputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogParser.resx">
+      <DependentUpon>FormLogParser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetting.resx">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLL\QMSSDK.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ico_EquipmentMonitor.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
